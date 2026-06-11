@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WM 2026 – Konstellations-Tool</title>
+  <title>World Cup 26 – Who meets who?</title>
+  <meta property="og:title" content="World Cup 26 – Who meets who?" />
+  <meta property="og:description" content="Build your own WC2026 scenario. Set the groups and see who meets who – all the way to the final." />
+  <meta property="og:url" content="https://www.cupmap26.com" />
+  <meta property="og:type" content="website" />
+  <meta name="description" content="Build your own WC2026 scenario. Set the groups and see who meets who – all the way to the final." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="World Cup 26 – Who meets who?" />
+  <meta name="twitter:description" content="Build your own WC2026 scenario. Set the groups and see who meets who – all the way to the final." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
-  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script>
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { margin: 0; padding: 0; background: #111020; overflow-x: hidden; }
@@ -171,7 +170,7 @@ const RC = { r16:'#00A87A', r8:'#FF8C42', qf:'#8B5CF6', sf:'#E30A17', fin:'#D4AF
 const TX = {
   de:{
     title:'WM 2026', sub:'Konstellations-Tool',
-    teamTab:'�� Dein Team', grpTab:'⚙ Gruppen', koTab:'⚡ KO-Phase',
+    teamTab:'🌍 Dein Team', grpTab:'⚙ Gruppen', koTab:'⚡ KO-Phase',
     grp:'Gruppe', reset:'↺ Reset',
     r16:'Sechzehntelfinale', r8:'Achtelfinale', qf:'Viertelfinale', sf:'Halbfinale', fin:'Finale',
     p1:'1.', p2:'2.', p3:'3.', p4:'4.',
@@ -526,7 +525,7 @@ function MatchCard({ mid, rnks, thirds, wins, onWin, onThird, lang, t, rndColor,
       <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'0.26rem' }}>
         <span style={{ fontSize:'0.52rem', color:'rgba(255,255,255,0.25)', fontFamily:'Arial' }}>{adjustTime(m.dt, lang)}</span>
         {hasST && <span style={{ fontSize:'0.52rem', color:'#ffe066', fontWeight:700 }}>★</span>}
-        {!hasST && canPick && !winner && <span style={{ fontSize:'0.5rem', color:`${accent}88`, fontFamily:'Arial' }}>▶</span>}
+        
       </div>
       {thdSlot && (
         <div style={{ marginBottom:'0.4rem',
