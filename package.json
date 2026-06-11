@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FIFA World Cup 2026 Bracket Tool – Grupları belirle ve bir sonraki rakibimiz kim olacak gör" />
+    <title>WM 2026 – Konstellations-Tool</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
+
+    <!-- Google Analytics GA4 – DEINE MEASUREMENT ID hier eintragen (G-XXXXXXXXXX) -->
+    <!-- Schritt 1: analytics.google.com → Konto erstellen → Property → Datenstrom → Web -->
+    <!-- Schritt 2: Measurement ID kopieren und unten ersetzen -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
