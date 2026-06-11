@@ -16,6 +16,34 @@
 </head>
 <body>
   <div id="root"></div>
+  <div id="desktop-block" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(160deg,#111020,#17132e,#0e0b1e); z-index:99999; justify-content:center; align-items:center; flex-direction:column; text-align:center; padding:2rem; box-sizing:border-box;">
+    <div style="font-size:4rem; margin-bottom:1.5rem;">📱</div>
+    <div style="color:white; font-family:Arial; max-width:480px;">
+      <p style="font-size:1.3rem; font-weight:bold; margin-bottom:1rem; color:#a78bfa;">🇩🇪 Deutsch</p>
+      <p style="font-size:1rem; color:rgba(255,255,255,0.85); margin-bottom:2rem; line-height:1.6;">Diese Seite ist nur für Smartphones verfügbar.<br>Bitte öffne sie auf deinem Mobilgerät.</p>
+      <p style="font-size:1.3rem; font-weight:bold; margin-bottom:1rem; color:#a78bfa;">🇹🇷 Türkçe</p>
+      <p style="font-size:1rem; color:rgba(255,255,255,0.85); margin-bottom:2rem; line-height:1.6;">Bu sayfa yalnızca akıllı telefonlar için kullanılabilir.<br>Lütfen mobil cihazınızda açın.</p>
+      <p style="font-size:1.3rem; font-weight:bold; margin-bottom:1rem; color:#a78bfa;">🇬🇧 English</p>
+      <p style="font-size:1rem; color:rgba(255,255,255,0.85); line-height:1.6;">This page is only available on smartphones.<br>Please open it on your mobile device.</p>
+    </div>
+  </div>
+
+  <script>
+    function checkDevice() {
+      var isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      var block = document.getElementById('desktop-block');
+      var root = document.getElementById('root');
+      if (!isMobile) {
+        block.style.display = 'flex';
+        root.style.display = 'none';
+      } else {
+        block.style.display = 'none';
+        root.style.display = 'block';
+      }
+    }
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+  </script>
   <script type="text/babel">
 const { useState, useEffect } = React;
 
