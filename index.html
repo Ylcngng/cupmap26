@@ -504,8 +504,22 @@ const GOLD = '#D4AF37';
 // ══════════════════════════════════════════════════════
 
 function GroupCard({ gid, ranking, onChange, lang, t, selectedTeam }) {
+  const [tapped, setTapped] = React.useState(null);
   const pc = ['#4ade80', '#60a5fa', 'rgba(255,255,255,0.22)', 'rgba(255,255,255,0.1)'];
-  const swap = (i, j) => { const r = [...ranking]; [r[i], r[j]] = [r[j], r[i]]; onChange(gid, r); };
+
+  const handleTap = (idx) => {
+    if (tapped === null) {
+      setTapped(idx);
+    } else if (tapped === idx) {
+      setTapped(null);
+    } else {
+      const r = ranking.slice();
+      var tmp = r[tapped]; r[tapped] = r[idx]; r[idx] = tmp;
+      onChange(gid, r);
+      setTapped(null);
+    }
+  };
+
   return (
     <div style={{
       border: '1px solid rgba(255,255,255,0.18)',
@@ -518,40 +532,47 @@ function GroupCard({ gid, ranking, onChange, lang, t, selectedTeam }) {
       </div>
       {ranking.map((team, idx) => {
         const isSel = team === selectedTeam;
+        const isTapped = tapped === idx;
         return (
-          <div key={team} style={{
-            display:'flex', alignItems:'center', gap:'0.5rem',
-            padding:'0.6rem 0.3rem', minHeight:52,
-            borderBottom: idx < 3 ? '1px solid rgba(255,255,255,0.1)' : 'none',
-            background: isSel ? 'rgba(255,255,255,0.04)' : 'transparent',
-            borderRadius: isSel ? 6 : 0,
-          }}>
-            <span style={{ fontSize:'0.7rem', fontWeight:700, width:22, color:pc[idx],
+          <div key={team}
+            onClick={() => handleTap(idx)}
+            style={{
+              display:'flex', alignItems:'center', gap:'0.5rem',
+              padding:'0.6rem 0.55rem', minHeight:52,
+              borderBottom: idx < 3 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+              borderRadius: 8,
+              cursor: 'pointer',
+              background: isTapped
+                ? 'rgba(255,224,102,0.12)'
+                : tapped !== null
+                  ? 'rgba(255,255,255,0.06)'
+                  : isSel ? 'rgba(255,255,255,0.04)' : 'transparent',
+              border: isTapped
+                ? '1px solid rgba(255,224,102,0.5)'
+                : '1px solid transparent',
+              transition: 'background 0.15s, border 0.15s',
+              userSelect: 'none',
+              WebkitUserSelect: 'none',
+            }}>
+            <span style={{ fontSize:'0.7rem', fontWeight:700, width:22, color: isTapped ? '#ffe066' : pc[idx],
               fontFamily:'Arial', flexShrink:0, textAlign:'right' }}>
               {[t.p1, t.p2, t.p3, t.p4][idx]}
             </span>
             <span style={{ fontSize:'1.2rem', flexShrink:0, lineHeight:1 }}>{tf(team)}</span>
             <span style={{
               flex:1, fontSize:'0.84rem',
-              color: isSel ? '#ffe066' : idx < 2 ? '#ddd' : 'rgba(255,255,255,0.28)',
-              fontWeight: isSel ? 700 : 400,
+              color: isTapped ? '#ffe066' : isSel ? '#ffe066' : idx < 2 ? '#ddd' : 'rgba(255,255,255,0.28)',
+              fontWeight: isTapped || isSel ? 700 : 400,
               overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap',
             }}>{tn(team, lang)}</span>
-            <div style={{ display:'flex', gap:5, flexShrink:0 }}>
-              {[0, 1].map(d => (
-                <button key={d} onClick={() => swap(idx, idx + (d ? 1 : -1))}
-                  disabled={d ? idx === 3 : idx === 0}
-                  style={{
-                    width:44, height:44, borderRadius:10, padding:0,
-                    border: `1px solid ${(d ? idx===3 : idx===0) ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.2)'}`,
-                    background: (d ? idx===3 : idx===0) ? 'rgba(255,255,255,0.02)' : 'rgba(255,255,255,0.09)',
-                    cursor: (d ? idx === 3 : idx === 0) ? 'default' : 'pointer',
-                    color: (d ? idx === 3 : idx === 0) ? 'rgba(255,255,255,0.1)' : '#fff',
-                    fontSize:'13px', display:'flex', alignItems:'center', justifyContent:'center',
-                    touchAction:'manipulation',
-                  }}>{d ? '▼' : '▲'}</button>
-              ))}
-            </div>
+            {isTapped && (
+              <span style={{ fontSize:'0.65rem', color:'#ffe066', fontFamily:'Arial',
+                flexShrink:0, letterSpacing:'0.05em' }}>✓</span>
+            )}
+            {tapped !== null && !isTapped && (
+              <span style={{ fontSize:'0.65rem', color:'rgba(255,255,255,0.3)', fontFamily:'Arial',
+                flexShrink:0 }}>↕</span>
+            )}
           </div>
         );
       })}
