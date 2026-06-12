@@ -1152,25 +1152,26 @@ function App() {
                   letterSpacing:'0.16em', textTransform:'uppercase', marginBottom:'0.18rem' }}>
                   {t.next}
                 </div>
-                <div style={{ fontFamily:"'Bebas Neue',Impact,sans-serif", fontSize:'1.0rem',
-                  letterSpacing:'0.08em', color:'rgba(255,255,255,0.65)', marginBottom:'0.35rem' }}>
+                <div style={{ fontFamily:"'Bebas Neue',Impact,sans-serif", fontSize:'1.2rem',
+                  letterSpacing:'0.1em', color:'rgba(255,255,255,0.95)', marginBottom:'0.4rem' }}>
                   {rl[stRound]}
                 </div>
                 <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-                  <div style={{ display:'flex', alignItems:'center', gap:'0.35rem', flex:1 }}>
-                    <span style={{ fontSize:'1.25rem' }}>{tf(h)}</span>
-                    <span style={{ fontFamily:'Arial', fontSize:'0.82rem', fontWeight:700,
-                      color:'#ffe066' }}>{tn(h,lang)}</span>
+                  <div style={{ display:'flex', alignItems:'center', gap:'0.4rem', flex:1 }}>
+                    <span style={{ fontSize:'1.4rem' }}>{tf(h)}</span>
+                    <span style={{ fontFamily:"'Bebas Neue',Impact,sans-serif", fontSize:'1.05rem',
+                      letterSpacing:'0.04em', color:'#ffe066' }}>{tn(h,lang)}</span>
                   </div>
-                  <div style={{ color:'rgba(255,255,255,0.28)', fontFamily:'Arial',
-                    fontWeight:700, fontSize:'0.7rem', flexShrink:0, padding:'0 0.4rem' }}>vs</div>
-                  <div style={{ display:'flex', alignItems:'center', gap:'0.35rem',
+                  <div style={{ color:'rgba(255,255,255,0.4)', fontFamily:"'Bebas Neue',Impact,sans-serif",
+                    fontWeight:700, fontSize:'0.9rem', flexShrink:0, padding:'0 0.4rem' }}>VS</div>
+                  <div style={{ display:'flex', alignItems:'center', gap:'0.4rem',
                     flex:1, justifyContent:'flex-end' }}>
-                    <span style={{ fontFamily:'Arial', fontSize:'0.82rem',
-                      color: a ? 'rgba(255,255,255,0.82)' : 'rgba(255,255,255,0.28)' }}>
+                    <span style={{ fontFamily:"'Bebas Neue',Impact,sans-serif", fontSize:'1.05rem',
+                      letterSpacing:'0.04em',
+                      color: a ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.28)' }}>
                       {a ? tn(a,lang) : '?'}
                     </span>
-                    <span style={{ fontSize:'1.25rem' }}>{a ? tf(a) : '❓'}</span>
+                    <span style={{ fontSize:'1.4rem' }}>{a ? tf(a) : '❓'}</span>
                   </div>
                 </div>
                 {matchDt && (
@@ -1190,7 +1191,7 @@ function App() {
             <button key={id} onClick={() => setTab(id)} style={{
               flex:1, padding:'0.5rem 0.25rem', borderRadius:8, fontFamily:'Arial', fontWeight:700,
               fontSize:'0.72rem', letterSpacing:'0.03em', cursor:'pointer',
-              background: tab===id ? 'linear-gradient(90deg,rgba(255,140,66,0.7),rgba(139,92,246,0.7))' : 'rgba(255,255,255,0.07)',
+              background: tab===id ? 'linear-gradient(90deg,rgba(139,92,246,0.7),rgba(255,140,66,0.7))' : 'rgba(255,255,255,0.07)',
               border: `1px solid ${tab===id ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.18)'}`,
               color: tab===id ? '#fff' : 'rgba(255,255,255,0.55)',
               animation: (id === 'bracket' && koTabPulse) ? 'tabPulse 1.0s ease-in-out 3' : 'none',
@@ -1222,10 +1223,10 @@ function App() {
               return (
                 <div key={rnd} style={{ marginBottom:'1.35rem' }}>
                   <div style={{ display:'flex', alignItems:'center', gap:'0.45rem', marginBottom:'0.45rem' }}>
-                    <div style={{ flex:1, height:'1px', background:`${color}55` }}/>
+                    <div style={{ flex:1, height:'1px', background:`linear-gradient(90deg,transparent,${color}88)` }}/>
                     <span style={{ fontSize:'0.58rem', fontWeight:700, letterSpacing:'0.22em',
                       color:color, fontFamily:'Arial', whiteSpace:'nowrap' }}>{rl[rnd]}</span>
-                    <div style={{ flex:1, height:'1px', background:`${color}55` }}/>
+                    <div style={{ flex:1, height:'1px', background:`linear-gradient(90deg,${color}88,transparent)` }}/>
                   </div>
                   {rnd==='fin' ? (
                     <div style={{ maxWidth:360, margin:'0 auto' }}>
