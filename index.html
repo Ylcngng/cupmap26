@@ -1102,7 +1102,7 @@ function App() {
               {selectedTeam && stStatus==='champion' && <span style={{ color:GOLD }}>{t.champion}</span>}
               {selectedTeam && stStatus==='eliminated' && <span style={{ color:'rgba(255,255,255,0.4)' }}>{t.eliminated} {rl[stRound]}</span>}
               {selectedTeam && stStatus==='group_out' && <span style={{ color:'rgba(255,255,255,0.32)' }}>{t.groupOut}</span>}
-              {sel              {selectedTeam && (stStatus==='in_progress'||stStatus==='qualified') && stMid && (() => {
+              {selectedTeam && (stStatus==='in_progress'||stStatus==='qualified') && stMid && (() => {
                 const [h,a] = getTeams(stMid, rnks, thirds, wins);
                 return <span style={{ color:'#fff' }}>
                   {rl[stRound]} · {t.next}:{' '}
