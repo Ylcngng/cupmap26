@@ -13,6 +13,12 @@
   <meta name="twitter:title" content="World Cup 26 – Who meets who?" />
   <meta name="twitter:description" content="Build your own WC2026 scenario. Set the groups and see who meets who – all the way to the final." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
+  <style>
+    @keyframes tabPulse {
+      0%,100% { box-shadow:none; transform:scale(1); }
+      50% { box-shadow:0 0 22px 4px rgba(255,140,66,0.75), 0 0 40px rgba(139,92,246,0.4); transform:scale(1.03); }
+    }
+  </style>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -821,8 +827,6 @@ function App() {
         ::-webkit-scrollbar { width:3px }
         ::-webkit-scrollbar-thumb { background:rgba(139,92,246,0.4);border-radius:2px }
         select { appearance:none;-webkit-appearance:none }
-        @keyframes tabPulse { 0%,100%{box-shadow:none;transform:scale(1)} 50%{box-shadow:0 0 22px 4px rgba(255,140,66,0.75),0 0 40px rgba(139,92,246,0.4);transform:scale(1.03)} }
-        @keyframes tabPulse { 0%,100%{box-shadow:none;transform:scale(1)} 50%{box-shadow:0 0 22px 4px rgba(255,140,66,0.75),0 0 40px rgba(139,92,246,0.4);transform:scale(1.03)} }
         select option { background:#120008!important;color:#fff }
       `}</style>
 
