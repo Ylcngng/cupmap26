@@ -727,7 +727,6 @@ function App() {
   const [thirds, setThirds]       = useState({});
   const [wins, setWins]           = useState({});
   const [selectedTeam, setSelectedTeam] = useState(null);
-  const [saved, setSaved]         = useState(false);
   const [showInfo, setShowInfo]   = useState(false);
   const [koTabPulse, setKoTabPulse] = useState(false);
   const [showAdInfo, setShowAdInfo] = useState(false);
@@ -735,28 +734,16 @@ function App() {
 
   useEffect(() => {
     try {
-        const saved = localStorage.getItem('wm26-v5');
-        if (saved) {
-          const p = JSON.parse(saved);
-          if (p.rnks) setRnks(p.rnks);
-          if (p.thirds) setThirds(p.thirds);
-          if (p.wins) setWins(p.wins);
-          if (p.lang) setLang(p.lang);
-          if ('selectedTeam' in p) setSelectedTeam(p.selectedTeam ?? null);
-          if (p.tab) setTab(p.tab);
-        }
+      const saved = localStorage.getItem('wm26-lang');
+      if (saved) setLang(saved);
     } catch (e) {}
   }, []);
 
   useEffect(() => {
-    const id = setTimeout(async () => {
-      try {
-        localStorage.setItem('wm26-v5', JSON.stringify({ rnks, thirds, wins, lang, selectedTeam, tab }));
-        setSaved(true); setTimeout(() => setSaved(false), 1600);
-      } catch (e) {}
-    }, 900);
-    return () => clearTimeout(id);
-  }, [rnks, thirds, wins, lang, selectedTeam, tab]);
+    try {
+      localStorage.setItem('wm26-lang', lang);
+    } catch (e) {}
+  }, [lang]);
 
   const updRnk = (g, r) => {
     setRnks(p => ({...p,[g]:r}));
