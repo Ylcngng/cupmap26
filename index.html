@@ -47,7 +47,9 @@
       <p style="font-size:1.1rem; font-weight:bold; margin-bottom:0.4rem; color:#a78bfa;">Français</p>
       <p style="font-size:0.9rem; color:rgba(255,255,255,0.85); margin-bottom:1.4rem; line-height:1.6;">Cette page est disponible uniquement sur smartphones.<br>Veuillez l'ouvrir sur votre appareil mobile.</p>
       <p style="font-size:1.1rem; font-weight:bold; margin-bottom:0.4rem; color:#a78bfa;">日本語</p>
-      <p style="font-size:0.9rem; color:rgba(255,255,255,0.85); margin-bottom:2rem; line-height:1.6;">このページはスマートフォン専用です。<br>モバイル端末でお開きください。</p>
+      <p style="font-size:0.9rem; color:rgba(255,255,255,0.85); margin-bottom:1.4rem; line-height:1.6;">このページはスマートフォン専用です。<br>モバイル端末でお開きください。</p>
+      <p style="font-size:1.1rem; font-weight:bold; margin-bottom:0.4rem; color:#a78bfa;">한국어</p>
+      <p style="font-size:0.9rem; color:rgba(255,255,255,0.85); margin-bottom:2rem; line-height:1.6;">이 페이지는 스마트폰 전용입니다.<br>모바일 기기에서 열어주세요.</p>
       <a href="mailto:contact@cupmap26.com" style="display:block; text-align:center; color:#a78bfa; font-size:1rem; text-decoration:none; border:1px solid rgba(167,139,250,0.4); border-radius:8px; padding:0.75rem 1.5rem; margin-top:0.5rem; letter-spacing:0.03em;">contact@cupmap26.com</a>
     </div>
   </div>
@@ -330,6 +332,27 @@ const TX = {
     infoDesc:'48チーム。12グループ。1つのトロフィー。あなたが決める。\n\n自国チームを選び、グループを自分の予想で並べ、ラウンドごとに勝者を選びましょう。ツールはリアルタイムであなたのチームが歩む道を正確に表示します。\n\n全48代表チームが利用可能。2026 FIFA W杯の完全な公式スケジュール。\n\n──────────────────\n\nなぜ自分で3位チームを選ぶのか？\n\n2026 W杯には12のグループがあります。つまり12の3位チームが存在します。しかし、ノックアウトステージに進めるのは最も優秀な8チームだけです。どのチームが進めるかは、グループステージ全体が終了した後にのみ決まります。そのため、このツールでは最も可能性が高いと思う3位チームを自分で選ぶことができます。',
     infoClose:'閉じる', adSpace:'この広告スペースはご利用いただけます – 詳細はお問い合わせください', adInfoBtn:'広告を掲載',
   },
+  ko:{
+    title:'WC 2026', sub:'시나리오 도구',
+    teamTab:'🌍 내 팀', grpTab:'⚙ 조별', koTab:'⚡ 토너먼트',
+    grp:'조', reset:'↺ 초기화',
+    r16:'32강', r8:'16강', qf:'8강', sf:'4강', fin:'결승',
+    p1:'1위', p2:'2위', p3:'3위', p4:'4위',
+    hint:'팀을 탭하여 승자 선택 · ↑↓로 순서 변경',
+    thd:'3위', thirdLabel:'3위 팀 선택', champion:'🏆 월드컵 우승!',
+    eliminated:'탈락 –', groupOut:'조별 리그 탈락',
+    next:'다음 경기', qualified:'16강 진출!', saved:'저장됨 ✓',
+    grpHint:'예상에 따라 각 조를 정렬하세요',
+    selectTeam:'팀 선택', followingText:'팀 선택',
+    pathSuffix:' 경로', continueHint:'조별 리그로 →',
+    selectPlaceholder:'── 팀 선택 ──',
+    noTeam:'위에서 팀을 선택하세요',
+    footer:'FIFA World Cup™은 FIFA의 등록 상표입니다. 이것은 FIFA 또는 그 라이선스 업체와 무관한 비공식 팬 프로젝트입니다. 모든 정보는 보증 없이 제공됩니다. 이 데이터를 기반으로 한 결정에 대한 책임은 없습니다. 스포츠 베팅과는 관련이 없습니다. 표시된 콘텐츠는 광고입니다.',
+    infoTitle:'조를 설정하고 다음 상대를 확인하세요',
+    infoSubline:'2026 월드컵 브래킷 빌더 – 나만의 예측 만들기',
+    infoDesc:'48개 팀. 12개 조. 하나의 트로피. 당신이 결정합니다.\n\n나라를 선택하고, 조를 원하는 대로 정렬하고, 라운드마다 승자를 고르세요. 결승전까지. 도구가 실시간으로 정확한 팀의 경로를 보여줍니다.\n\n48개 국가대표 팀 이용 가능. 2026 FIFA 월드컵 공식 일정.\n\n──────────────────\n\n왜 직접 3위 팀을 선택하나요?\n\n2026 월드컵에는 12개의 조가 있습니다. 즉 12개의 3위 팀이 있습니다. 하지만 토너먼트 단계로 진출하는 팀은 가장 우수한 8개 팀뿐입니다. 어떤 팀이 진출하는지는 조별 리그 전체가 끝난 후에만 결정됩니다. 그래서 이 도구는 가장 가능성이 높다고 생각하는 3위 팀을 직접 선택하게 해줍니다.',
+    infoClose:'닫기', adSpace:'이 광고 공간을 임대할 수 있습니다 – 자세한 내용은 문의하세요', adInfoBtn:'광고 게재',
+  },
 };
 
 const DEF = {
@@ -360,7 +383,7 @@ function adjustTime(dt, lang) {
   const [datePart, timePart] = dt.split(' · ');
   const [d, mo] = datePart.split('.').map(Number);
   const [h, min] = timePart.split(':').map(Number);
-  const offset = lang==='tr' ? 1 : lang==='es' ? 0 : lang==='fr' ? 0 : lang==='pt' ? -1 : lang==='ja' ? 7 : -1;
+  const offset = lang==='tr' ? 1 : lang==='es' ? 0 : lang==='fr' ? 0 : lang==='pt' ? -1 : lang==='ja' ? 7 : lang==='ko' ? 7 : -1;
   let nh = h + offset, nd = d, nm = mo;
   if (nh >= 24) {
     nh -= 24; nd++;
@@ -1007,8 +1030,8 @@ function App() {
             </div>
           </div>
           <div style={{ display:'flex', flexDirection:'column', alignItems:'flex-end', gap:'0.28rem' }}>
-            <div style={{ display:'flex', gap:'0.18rem', flexWrap:'wrap', justifyContent:'flex-end', maxWidth:160 }}>
-              {['de','tr','en','es','pt','fr','ja'].map(l => (
+            <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:'0.15rem', width:148 }}>
+              {['de','tr','en','es','pt','fr','ja','ko'].map(l => (
                 <button key={l} onClick={() => setLang(l)} style={{
                   padding:'0.18rem 0.35rem', borderRadius:4, fontFamily:'Arial',
                   fontSize:'0.55rem', fontWeight:700, letterSpacing:'0.06em',
@@ -1019,7 +1042,6 @@ function App() {
               ))}
             </div>
             <div style={{ display:'flex', gap:'0.22rem', alignItems:'center' }}>
-              {saved && <span style={{ fontSize:'0.58rem', color:'rgba(74,222,128,0.7)', fontFamily:'Arial' }}>{t.saved}</span>}
               <button onClick={() => setShowInfo(true)} style={{ padding:'0.2rem 0.52rem', borderRadius:4, fontFamily:'Arial',
                 fontSize:'0.6rem', color:'rgba(255,255,255,0.55)', background:'rgba(255,255,255,0.06)',
                 border:'1px solid rgba(255,255,255,0.14)', cursor:'pointer', fontWeight:700 }}>ℹ</button>
@@ -1084,41 +1106,82 @@ function App() {
 
         {/* ── STATUS-BANNER ── */}
         <div style={{ background:bannerBg, border:`1px solid ${bannerBrd}`, borderRadius:10,
-          padding:'0.65rem 1rem', marginBottom:'0.9rem',
-          display:'flex', justifyContent:'space-between', alignItems:'center', minHeight:62 }}>
-          <div style={{ flex:1 }}>
-            <div style={{ fontSize:'0.58rem', color:'rgba(255,255,255,0.3)', fontFamily:'Arial',
-              letterSpacing:'0.14em', marginBottom:'0.1rem' }}>
-              {selectedTeam
-                ? `${t.followingText}: ${tf(selectedTeam)} ${tn(selectedTeam, lang)}${t.pathSuffix}`
-                : t.followingText}
+          padding:'0.7rem 1rem', marginBottom:'0.9rem', minHeight:62 }}>
+
+          {!selectedTeam && (
+            <div style={{ color:'rgba(255,255,255,0.35)', fontSize:'0.85rem',
+              fontFamily:'Arial', textAlign:'center', padding:'0.3rem 0' }}>
+              {t.noTeam}
             </div>
-            <div style={{ fontFamily:"'Bebas Neue',Impact,sans-serif", fontSize:'1.1rem', letterSpacing:'0.04em' }}>
-              {!selectedTeam && (
-                <span style={{ color:'rgba(255,255,255,0.35)', fontSize:'0.85rem', fontFamily:'Arial', fontWeight:400 }}>
-                  {t.noTeam}
-                </span>
-              )}
-              {selectedTeam && stStatus==='champion' && <span style={{ color:GOLD }}>{t.champion}</span>}
-              {selectedTeam && stStatus==='eliminated' && <span style={{ color:'rgba(255,255,255,0.4)' }}>{t.eliminated} {rl[stRound]}</span>}
-              {selectedTeam && stStatus==='group_out' && <span style={{ color:'rgba(255,255,255,0.32)' }}>{t.groupOut}</span>}
-              {selectedTeam && (stStatus==='in_progress'||stStatus==='qualified') && stMid && (() => {
-                const [h,a] = getTeams(stMid, rnks, thirds, wins);
-                return <span style={{ color:'#fff' }}>
-                  {rl[stRound]} · {t.next}:{' '}
-                  <span style={{ color:'#ffe066' }}>{tf(h)} {tn(h,lang)}</span>
-                  <span style={{ color:'rgba(255,255,255,0.28)' }}> vs </span>
-                  <span>{tf(a)} {tn(a,lang)}</span>
-                </span>;
-              })()}
-              {selectedTeam && stStatus==='qualified' && !stMid && <span style={{ color:'rgba(255,255,255,0.5)', fontSize:'0.85rem', fontFamily:'Arial' }}>{t.qualified}</span>}
+          )}
+
+          {selectedTeam && stStatus==='champion' && (
+            <div style={{ textAlign:'center', fontFamily:"'Bebas Neue',Impact,sans-serif",
+              fontSize:'1.3rem', color:GOLD, filter:`drop-shadow(0 0 8px ${GOLD})` }}>
+              {t.champion}
             </div>
-            {stStatus==='in_progress' && stMid && <div style={{ fontSize:'0.57rem', color:'rgba(255,255,255,0.2)', fontFamily:'Arial', marginTop:2 }}>{adjustTime(M[stMid]?.dt ?? '', lang)}</div>}
-          </div>
-          <div style={{ fontSize: stStatus==='champion'?'2.2rem': selectedTeam?'1.9rem':'1.6rem', marginLeft:'0.5rem',
-            filter: stStatus==='champion'?`drop-shadow(0 0 10px ${GOLD})`: selectedTeam?'none':'grayscale(1) opacity(0.2)' }}>
-            {!selectedTeam ? '🏳️' : stStatus==='champion'?'🏆':stStatus==='eliminated'?'💔':stStatus==='group_out'?'❌':tf(selectedTeam)}
-          </div>
+          )}
+
+          {selectedTeam && stStatus==='eliminated' && (
+            <div style={{ textAlign:'center', fontFamily:"'Bebas Neue',Impact,sans-serif",
+              fontSize:'1.1rem', color:'rgba(255,255,255,0.4)' }}>
+              {t.eliminated} {rl[stRound]}
+            </div>
+          )}
+
+          {selectedTeam && stStatus==='group_out' && (
+            <div style={{ textAlign:'center', fontSize:'0.85rem',
+              fontFamily:'Arial', color:'rgba(255,255,255,0.32)' }}>
+              {t.groupOut}
+            </div>
+          )}
+
+          {selectedTeam && stStatus==='qualified' && !stMid && (
+            <div style={{ textAlign:'center', fontSize:'0.85rem',
+              fontFamily:'Arial', color:'rgba(255,255,255,0.5)' }}>
+              {t.qualified}
+            </div>
+          )}
+
+          {selectedTeam && (stStatus==='in_progress'||stStatus==='qualified') && stMid && (() => {
+            const [h,a] = getTeams(stMid, rnks, thirds, wins);
+            const matchDt = M[stMid] ? M[stMid].dt : '';
+            return (
+              <div>
+                <div style={{ fontSize:'0.52rem', color:'rgba(255,255,255,0.35)', fontFamily:'Arial',
+                  letterSpacing:'0.16em', textTransform:'uppercase', marginBottom:'0.18rem' }}>
+                  {t.next}
+                </div>
+                <div style={{ fontFamily:"'Bebas Neue',Impact,sans-serif", fontSize:'1.0rem',
+                  letterSpacing:'0.08em', color:'rgba(255,255,255,0.65)', marginBottom:'0.35rem' }}>
+                  {rl[stRound]}
+                </div>
+                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                  <div style={{ display:'flex', alignItems:'center', gap:'0.35rem', flex:1 }}>
+                    <span style={{ fontSize:'1.25rem' }}>{tf(h)}</span>
+                    <span style={{ fontFamily:'Arial', fontSize:'0.82rem', fontWeight:700,
+                      color:'#ffe066' }}>{tn(h,lang)}</span>
+                  </div>
+                  <div style={{ color:'rgba(255,255,255,0.28)', fontFamily:'Arial',
+                    fontWeight:700, fontSize:'0.7rem', flexShrink:0, padding:'0 0.4rem' }}>vs</div>
+                  <div style={{ display:'flex', alignItems:'center', gap:'0.35rem',
+                    flex:1, justifyContent:'flex-end' }}>
+                    <span style={{ fontFamily:'Arial', fontSize:'0.82rem',
+                      color: a ? 'rgba(255,255,255,0.82)' : 'rgba(255,255,255,0.28)' }}>
+                      {a ? tn(a,lang) : '?'}
+                    </span>
+                    <span style={{ fontSize:'1.25rem' }}>{a ? tf(a) : '❓'}</span>
+                  </div>
+                </div>
+                {matchDt && (
+                  <div style={{ fontSize:'0.55rem', color:'rgba(255,255,255,0.28)',
+                    fontFamily:'Arial', marginTop:'0.3rem' }}>
+                    {adjustTime(matchDt, lang)}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </div>
 
         {/* ── TABS (3 Stück) ── */}
