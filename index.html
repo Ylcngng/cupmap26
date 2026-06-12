@@ -773,7 +773,25 @@ function App() {
     });
   };
 
-  // Smarte Invalidierung: nur Picks löschen wo das eingetippte Team nicht mehr im Spiel steht
+  // Smarte Invalidierung: Thirds bereinigen wenn Team nicht mehr Dritter seiner Gruppe ist
+  useEffect(() => {
+    setThirds(prev => {
+      const u = Object.assign({}, prev);
+      let changed = false;
+      Object.keys(u).forEach(function(slot) {
+        const team = u[slot];
+        if (!team) return;
+        // Team darf nur in thirds bleiben wenn es noch auf Platz 3 (Index 2) seiner Gruppe steht
+        const stillThird = Object.keys(rnks).some(function(g) {
+          return rnks[g][2] === team;
+        });
+        if (!stillThird) { delete u[slot]; changed = true; }
+      });
+      return changed ? u : prev;
+    });
+  }, [rnks]);
+
+  // Smarte Invalidierung: nur Wins löschen wo das Team nicht mehr im Spiel steht
   useEffect(() => {
     setWins(prevWins => {
       const u = { ...prevWins };
