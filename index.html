@@ -685,11 +685,17 @@ function MatchCard({ mid, rnks, thirds, wins, onWin, onThird, lang, t, rndColor,
         {hasST && <span style={{ fontSize:'0.52rem', color:'#ffe066', fontWeight:700 }}>★</span>}
         
       </div>
-      {thdSlot && (
+      {thdSlot && (() => {
+        const thdKey = thdSlot.e.join('-');
+        const thdSelected = thirds[thdKey];
+        return (
         <div style={{ marginBottom:'0.4rem',
-          background:'rgba(255,255,255,0.04)', borderRadius:6,
+          background: thdSelected ? 'rgba(255,255,255,0.04)' : 'rgba(220,38,38,0.04)',
+          borderRadius:6,
           padding:'0.35rem 0.45rem',
-          border:'1px solid rgba(255,255,255,0.12)' }}>
+          border: thdSelected ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(220,38,38,0.25)',
+          animation: thdSelected ? 'none' : 'matchPulse 2.2s ease-in-out infinite',
+        }}>
           <div style={{ fontSize:'0.55rem', color:'rgba(255,255,255,0.4)',
             fontFamily:'Arial', letterSpacing:'0.1em', marginBottom:'0.2rem' }}>
             🔀 {t.thirdLabel}
@@ -737,7 +743,8 @@ function MatchCard({ mid, rnks, thirds, wins, onWin, onThird, lang, t, rndColor,
             );
           })()}
         </div>
-      )}
+        );
+      })()}
       <div style={{ display:'flex', alignItems:'center', gap:'0.22rem' }}>
         <Slot team={home} slot={m.h} side="home" />
         <span style={{ color:'rgba(255,255,255,0.18)', fontSize:'0.62rem', fontWeight:700, flexShrink:0 }}>vs</span>
